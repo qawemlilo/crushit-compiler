@@ -1,1 +1,1 @@
-{  "name": "crushitWebApp", "version": "0.0.1", "private": true, "dependencies": {    "connect": "2.7.0"  , "crushit": "latest"  }}
+{   "name":"crushit-compiler",   "version":"0.0.1",   "private":true,   "dependencies":{      "connect":"2.7.x",      "crushit":"latest"   },   "devDependencies":{      "mocha":"latest",      "should":"latest"   },   "scripts":{      "build":"node tools/r.js -o app/js/app.build.js"   }}

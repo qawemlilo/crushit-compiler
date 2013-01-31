@@ -1,1 +1,1 @@
-# CrushIt Web App
+# CrushIt CompilerCrushIt Compiler crawls through a web page and crushes all scripts into a single file.

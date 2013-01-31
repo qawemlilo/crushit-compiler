@@ -1,6 +1,7 @@
 *.zip
 *.psd
 node_modules/
+build/
 
 #################
 ## Eclipse
