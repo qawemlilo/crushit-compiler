@@ -3,8 +3,18 @@ requirejs.config({
     
     baseUrl: 'js',
     
-    shim: { 
+    shim: {
+        'libs/underscore': {
+            exports: '_'
+        },
+        
+        'libs/backbone': {
+            deps: ['libs/underscore'],
+            exports: 'Backbone'
+        },
+        
         'app': {
+            deps: ['libs/underscore', 'libs/backbone'],
             exports: 'CrushIt'
         }
     }

@@ -26,11 +26,11 @@
     <div id="app-body">  
       <div class="row-fluid cont">
         <div class="span4 controls">
-          <div class="well">
+          <div class="well" id="left-panel">
             <div style="padding: 20px;">
               <blockquote>CrushIt Compiler crawls through a web page and crushes all scripts into a single file.</blockquote>
               <form method="post" id="crushit" action="/crush">
-                <input type="text" name="url" placeholder="Enter web page url" class="input-xlarge" value="" style="margin-bottom: 0px" /> <input class="btn btn-primary" type="submit" value="CrushIt" name="submit" />
+                <input type="text" name="url" id="url" placeholder="Enter web page url" class="input-xlarge" value="" style="margin-bottom: 0px" /> <input class="btn btn-primary" type="submit" value="CrushIt" id="submit" name="submit" />
                 <br />
                 <label class="checkbox inline">
                   <input type="checkbox" id="beautify" name="beautify" > Beautify Output
@@ -39,7 +39,7 @@
                   <input type="checkbox" id="comments" name="comments" > Keep Comments
                 </label> 
                 <label class="checkbox inline">
-                  <input type="checkbox" id="compress" name="compress" > Compress
+                  <input type="checkbox" id="strict" name="strict" > Strict
                 </label> 
               </form>
             </div>
