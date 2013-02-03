@@ -15,11 +15,8 @@ app = connect()
   .use('/build', connect.static('build/'))
   .use('/crush', crush);
 
-
-var port = process.env.PORT || 8080;
-
-http.createServer(app).listen(port, function() {
-  console.log('Running on %s', port);
+http.createServer(app).listen(8080, function() {
+  console.log('Running on http://localhost:8080');
 });
 
 
