@@ -10,8 +10,8 @@ var connect = require('connect'),
 
 
 app = connect()
-  .use(connect.static('app'))  // comment out when deploying
-  //.use(connect.static('production')) uncomment when deploying
+  //.use(connect.static('app'))  // comment out when deploying
+  .use(connect.static('production')) // uncomment when deploying
   .use(connect.bodyParser())
   .use('/crush', crush);
 
@@ -19,7 +19,7 @@ app = connect()
 var port = process.env.PORT || 8080;
 
 http.createServer(app).listen(port, function() {
-  console.log('Running on %s', port);
+  console.log('Running on port %s', port);
 });
 
 
