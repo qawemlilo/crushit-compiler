@@ -3,7 +3,7 @@
     
     mainConfigFile: './main.js',
     
-    dir: "../../build",
+    dir: "../../production",
     
     optimizeCss: "standard",
 

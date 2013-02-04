@@ -1,1 +1,1 @@
-# CrushIt CompilerCrushIt Compiler crawls through a web page and crushes all scripts into a single file.
+# CrushIt CompilerCrushIt Compiler is web interface for [CrushIt](https://github.com/qawemlilo/crushit), a NodeJS commandline tool for concatenating and minifying scripts from a web page.

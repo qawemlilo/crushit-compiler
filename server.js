@@ -10,9 +10,9 @@ var connect = require('connect'),
 
 
 app = connect()
-  .use(connect.static('app'))
+  .use(connect.static('app'))  // comment out when deploying
+  //.use(connect.static('production')) uncomment when deploying
   .use(connect.bodyParser())
-  .use('/build', connect.static('build/'))
   .use('/crush', crush);
 
 
@@ -39,6 +39,7 @@ function crush (req, res) {
         
         onComplete: function (error, code) {
             if (error) {
+                console.log(error.msg);
                 res.end(error.msg);
             } 
             else { 
