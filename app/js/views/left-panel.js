@@ -58,7 +58,7 @@ define(['../libs/md5', './console'], function (md5, Console) {
         sendRequest: function (url, data, format, cacheUrl) {
             var cacheKey = 'ct' + md5(cacheUrl), self = this;
             
-            if (self.cache.hasOwnProperty(cacheKey)) {
+            if (self.cache.hasOwnProperty(cacheKey) && _.isEqual(data, self.cache[cacheKey].request)) {
                 self.trigger('loaded');
                 self.console.update(self.cache[cacheKey].code);
                 
@@ -70,6 +70,7 @@ define(['../libs/md5', './console'], function (md5, Console) {
                 self.console.update(code);
                 self.cache[cacheKey] = {
                     url: cacheUrl,
+                    request: data,
                     code: code
                 };
             }, format);        
