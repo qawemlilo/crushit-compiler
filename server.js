@@ -1,4 +1,4 @@
-
+np
 /*
     Dependancies
 */
@@ -11,7 +11,6 @@ var connect = require('connect'),
 
 app = connect()
   .use(connect.compress())
-  //.use(connect.static('app'))  // comment out when deploying
   .use(connect.static('production')) // uncomment when deploying
   .use(connect.bodyParser())
   .use('/crush', crush);
