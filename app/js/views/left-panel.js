@@ -18,7 +18,10 @@ define(['../libs/md5', './console'], function (md5, Console) {
         
         events: {
             'submit #crushit': 'crushIt',
-            'focus #url':  'resetCrushIt'           
+            'focus #url':  'resetCrushIt',
+            'change #max': 'changeOtherOptions',
+            'change #comments': 'changeOtherOptions',
+            'change #beautify': 'changeOtherOptions'
         },
         
         
@@ -35,7 +38,21 @@ define(['../libs/md5', './console'], function (md5, Console) {
         resetCrushIt: function () {
             this.$('#url').val('');
             this.console.update('');
+            
+            if (this.active) {
+                this.trigger('loaded');
+            }
         },
+        
+        
+        
+        
+        changeOtherOptions: function () {
+            if ($('#max').is(':checked')) {
+                this.$('#comments, #beautify').attr("checked", false);
+            }
+        },
+        
         
         
         
@@ -66,13 +83,15 @@ define(['../libs/md5', './console'], function (md5, Console) {
             }
             
             $.post(url, data, function (code) {
-                self.trigger('loaded');
                 self.console.update(code);
                 self.cache[cacheKey] = {
                     url: cacheUrl,
                     request: data,
                     code: code
                 };
+                
+                self.trigger('loaded');
+                
             }, format);        
         },
         

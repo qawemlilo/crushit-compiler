@@ -10,6 +10,7 @@ var connect = require('connect'),
 
 
 app = connect()
+  .use(connect.compress())
   //.use(connect.static('app'))  // comment out when deploying
   .use(connect.static('production')) // uncomment when deploying
   .use(connect.bodyParser())
@@ -28,14 +29,14 @@ function crush (req, res) {
     var url = req.body.url, 
         beautify  = !!req.body.beautify,
         comments  = !!req.body.comments,
-        strict  = !!req.body.strict;
+        max  = !!req.body.max;
     
     crushit.crushScripts(url, {
         beautify: beautify,
         
         comments: comments,
         
-        strict: strict,
+        max: max,
         
         onComplete: function (error, code) {
             if (error) {

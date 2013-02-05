@@ -30,7 +30,7 @@
             <div style="padding: 20px;">
               <blockquote>CrushIt Compiler is a web interface for <a href="https://github.com/qawemlilo/crushit" title="CrushIt" target="_blank">CrushIt</a>, a NodeJS commandline tool for concatenating and minifying scripts from a web page.<br><br>Submit a web page URL and save output in a file. </blockquote>
               <form method="post" id="crushit" action="/crush">
-                <input type="text" name="url" id="url" placeholder="Enter web page url" class="input-xlarge" value="" style="margin-bottom: 0px" /> <input class="btn btn-primary" type="submit" value="CrushIt" id="submit" name="submit" />
+                <input type="text" name="url" id="url" placeholder="Enter web page url" class="input-xlarge" style="width: 75%; margin-bottom: 0px" value="" /> <input class="btn btn-primary" type="submit" value="CrushIt" id="submit" name="submit" />
                 <br />
                 <label class="checkbox inline">
                   <input type="checkbox" id="beautify" name="beautify" > Beautify <br> Output
@@ -39,14 +39,14 @@
                   <input type="checkbox" id="comments" name="comments" > Keep <br> Comments
                 </label> 
                 <label class="checkbox inline">
-                  <input type="checkbox" id="strict" name="strict" > Strict<br> &nbsp;
+                  <input type="checkbox" id="max" name="max" > Maximum<br> Optimisation
                 </label> 
               </form>
             </div>
           </div>
         </div>
         
-        <div class="span8 console-cont">
+        <div class="span8 console-cont" style="width: 67.35%; margin-left: 1%;">
           <textarea rows="3" placeholder="Console" id="console"></textarea>
         </div>
       </div>
@@ -55,7 +55,7 @@
 
   <div id="footer">
     <div class="row-fluid">
-      <p class="muted credit pull-left"><i class="icon-fire"></i> <a href="http://www.rflab.co.za/">Raging Flame &copy; 2013</a>  - Created by <a href="https://github.com/qawemlilo/">Qawelesizwe Mlilo</a>.</p>
+      <p class="muted credit pull-left"><i class="icon-fire"></i> <a href="http://www.rflab.co.za/" target="_blank">Raging Flame &copy; 2013</a>  - Created by <a href="https://github.com/qawemlilo/" target="_blank">Qawelesizwe Mlilo</a>.</p>
       <p class="muted credit  pull-right"><i class="icon-download-alt"></i> <a href="https://github.com/qawemlilo/crushit-compiler" target="_blank">Fork me on Github</a>.</p>
     </div>
   </div>
