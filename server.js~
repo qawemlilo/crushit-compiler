@@ -9,6 +9,7 @@ var connect = require('connect'),
 
 
 app = connect()
+  .use(connect.compressor())
   .use(connect.static('production')) // uncomment when deploying
   .use(connect.bodyParser())
   .use('/crush', crush);
