@@ -3,7 +3,7 @@
 */
 
 var connect = require('connect'),
-    crushit = require('crushit'), 
+    crushit = require('./node_modules/crushit/lib/app'), 
     http = require('http'), 
     app;
 
