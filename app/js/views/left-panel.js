@@ -1,5 +1,5 @@
 
-define(['../libs/md5', './console'], function (md5, Console) {
+define(['./console'], function (Console) {
     "use strict";
     
     var LeftPanel = Backbone.View.extend({
@@ -16,10 +16,6 @@ define(['../libs/md5', './console'], function (md5, Console) {
         
         
         terminalHandle: null,
-        
-        
-        
-        cache: {},
         
         
         
@@ -68,27 +64,14 @@ define(['../libs/md5', './console'], function (md5, Console) {
         
         
         sendRequest: function (url, data, format, cacheUrl) {
-            var cacheKey = 'ct' + md5(cacheUrl), self = this;
+            var self = this;
             
-            if (self.cache.hasOwnProperty(cacheKey) && _.isEqual(data, self.cache[cacheKey].request)) {
-                self.console.update(self.cache[cacheKey].code);
-                self.trigger('loaded');
-
-                return false;
-            }
             
             $.post(url, data, format)
             
             .done(function (code) {
                 self.console.update(code);
-                self.cache[cacheKey] = {
-                    url: cacheUrl,
-                    request: data,
-                    code: code
-                };
-                
-                self.trigger('loaded');
-                
+                self.trigger('loaded');  
             })
             
             .fail(function (xhr) {
@@ -143,16 +126,19 @@ define(['../libs/md5', './console'], function (md5, Console) {
         onUrlFocus: function () {
             this.$('#url').val('');
             this.console.update('');
-            
-            this.$('#crushit-command').empty();
-            clearInterval(this.terminalHandle);
+            if (!this.active) {
+                this.$('#crushit-command').empty();
+                clearInterval(this.terminalHandle);
+            }
         },
         
         
         
  
         onUrlBlur: function () {
-            this.blink();
+            if (!$('#url').val()) {
+                this.blink();
+            }
         },
         
         

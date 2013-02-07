@@ -26,7 +26,6 @@ js/main.js
 ----------------
 js/libs/underscore.js
 js/libs/backbone.js
-js/libs/md5.js
 js/views/console.js
 js/views/left-panel.js
 js/app.js

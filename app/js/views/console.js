@@ -8,7 +8,8 @@ define(function() {
         
         
         events: {
-            'focus': 'selectConsole'           
+            'focus': 'selectConsole',
+            'click': 'selectConsole'            
         },
 
 

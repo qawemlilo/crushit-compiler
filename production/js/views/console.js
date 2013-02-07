@@ -1,1 +1,1 @@
-define([],function(){var e=Backbone.View.extend({el:$("#console"),events:{focus:"selectConsole"},update:function(e){return this.$el.val(e),this},selectConsole:function(){this.$el.select()}});return e});
+define([],function(){var e=Backbone.View.extend({el:$("#console"),events:{focus:"selectConsole",click:"selectConsole"},update:function(e){return this.$el.val(e),this},selectConsole:function(){this.$el.select()}});return e});
