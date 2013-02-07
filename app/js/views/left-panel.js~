@@ -128,7 +128,8 @@ define(['./console'], function (Console) {
         
 
 
-        onUrlFocus: function () {           
+        onUrlFocus: function () {
+            
             if(!!this.active) {
                 return;
             }

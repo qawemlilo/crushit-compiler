@@ -11,7 +11,7 @@ var connect = require('connect'),
 app = connect()
   .use(connect.static('production')) // uncomment when deploying
   .use(connect.bodyParser())
-  .use('/crush', crush);
+  .use('/crush, crush);
 
 
 var port = process.env.PORT || 8080;
