@@ -27,6 +27,10 @@ function crush (req, res) {
         beautify  = !!req.body.beautify,
         comments  = !!req.body.comments,
         max  = !!req.body.max;
+        
+    if (url[0] === 'w') {
+        url = 'http://' + url;
+    }
     
     crushit.crushScripts(url, {
         beautify: beautify,
@@ -37,7 +41,7 @@ function crush (req, res) {
         
         onComplete: function (error, code) {
             if (error) {
-                console.log(error.msg);
+                res.statusCode = 500;
                 res.end(error.msg);
             } 
             else { 

@@ -20,6 +20,10 @@ html, body {
  margin: 0 auto -40px;
 }
 
+#console.error {
+  color: red;
+}
+
 
 
 
