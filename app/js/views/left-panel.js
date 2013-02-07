@@ -49,13 +49,17 @@ define(['./console'], function (Console) {
                 return;
             }
             
-            var self = this, url = self.$("#url").val();
+            this.active = true;
+            
+            var self = this, 
+                url = self.$("#url").val(), 
+                query = self.$('#crushit').serialize();
             
             clearInterval(self.terminalHandle);
             
             self.runTerminal(url, function () {
                 self.trigger('loading');
-                self.sendRequest('/crush', self.$('#crushit').serialize(), 'text', url);
+                self.sendRequest('/crush', query, 'text', url);
             });
             
             return false;
@@ -100,13 +104,13 @@ define(['./console'], function (Console) {
         
         loaded: function () {
             this.reset();
+            this.active = false;
         },
         
         
         
         
         reset: function () {
-            this.active = false;
             this.$('#submit').removeClass('disabled').attr('disabled', false);        
             $('#loading').removeClass('loading-active').addClass('loading-inactive');            
         },
@@ -118,25 +122,32 @@ define(['./console'], function (Console) {
             this.showingError = true;
             
             this.reset();
+            this.active = false;
             
         },
         
 
 
         onUrlFocus: function () {
+            if (this.active && $('#url').val()) {
+                console.log(!!this.active);
+                console.log($('#url').val());
+                return;
+            }
+            
+            console.log(!!this.active);
+            
             this.$('#url').val('');
             this.console.update('');
-            if (!this.active) {
-                this.$('#crushit-command').empty();
-                clearInterval(this.terminalHandle);
-            }
+            clearInterval(this.terminalHandle);
+            this.$('#crushit-command').text("");
         },
         
         
         
  
         onUrlBlur: function () {
-            if (!$('#url').val()) {
+            if (!$('#url').val() && !this.active) {
                 this.blink();
             }
         },

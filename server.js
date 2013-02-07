@@ -27,6 +27,10 @@ function crush (req, res) {
         beautify  = !!req.body.beautify,
         comments  = !!req.body.comments,
         max  = !!req.body.max;
+        
+    if (url[0] === 'w') {
+        url = 'http://' + url;
+    }
     
     crushit.crushScripts(url, {
         beautify: beautify,
