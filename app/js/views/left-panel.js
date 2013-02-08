@@ -33,6 +33,7 @@ define(['./console'], function (Console) {
         initialize: function () {
             this.console = new Console();
             
+            this.listenTo(this, 'init', this.init);
             this.listenTo(this, 'loading', this.loading);
             this.listenTo(this, 'loaded', this.loaded);
             this.listenTo(this, 'error', this.onError);
@@ -49,13 +50,13 @@ define(['./console'], function (Console) {
                 return;
             }
             
-            this.active = true;
+            this.trigger('init');  
             
             var self = this, 
                 url = self.$("#url").val(), 
                 query = self.$('#crushit').serialize();
             
-            clearInterval(self.terminalHandle);
+            self.switchOfBlinker();
             
             self.runTerminal(url, function () {
                 self.trigger('loading');
@@ -69,7 +70,6 @@ define(['./console'], function (Console) {
         
         sendRequest: function (url, data, format, cacheUrl) {
             var self = this;
-            
             
             $.post(url, data, format)
             
@@ -94,17 +94,22 @@ define(['./console'], function (Console) {
             }
             
             this.console.update('Crushing scripts....');
-            this.$('#submit').addClass('disabled').attr('disabled', 'disabled');
+            
             $('#loading').removeClass('loading-inactive').addClass('loading-active');
             this.active = true;
         },
+
         
+        
+        init: function () {
+            this.$('#submit').addClass('disabled').attr('disabled', 'disabled');
+            this.active = true; 
+        },
         
         
         
         loaded: function () {
             this.reset();
-            this.active = false;
         },
         
         
@@ -112,7 +117,8 @@ define(['./console'], function (Console) {
         
         reset: function () {
             this.$('#submit').removeClass('disabled').attr('disabled', false);        
-            $('#loading').removeClass('loading-active').addClass('loading-inactive');            
+            $('#loading').removeClass('loading-active').addClass('loading-inactive'); 
+            this.active = false;            
         },
         
         
@@ -120,23 +126,18 @@ define(['./console'], function (Console) {
         onError: function () {
             $('#console').addClass('error');
             this.showingError = true;
-            
             this.reset();
-            this.active = false;
-            
         },
         
 
 
         onUrlFocus: function () {           
-            if(!!this.active) {
+            if (!!this.active) {
                 return;
             }
-            
             this.$('#url').val('');
             this.console.update('');
-            clearInterval(this.terminalHandle);
-            this.$('#crushit-command').text("");
+            this.switchOfBlinker();
         },
         
         
@@ -160,7 +161,8 @@ define(['./console'], function (Console) {
         
         
         runTerminal: function (url, next) {
-            var command = this.getCommand(url), terminal = this.$('#crushit-command');
+            var command = this.getCommand(url), 
+                terminal = this.$('#crushit-command');
             
             terminal.text("");
             
@@ -206,17 +208,25 @@ define(['./console'], function (Console) {
             var self = this, terminal = this.$('#crushit-command'), on = false;
 
                 
-            self.terminalHandle = setInterval(function(){
-                if(on) { 
-                    terminal.html('');
+            self.terminalHandle = window.setInterval(function () {
+                if (on) { 
+                    terminal.text('');
                     on = false;
                 }
                 else {
-                    terminal.html('_');
+                    terminal.text('_');
                     on = true;
                 }  
             }, 500);
-        }         
+        },
+
+
+
+        switchOfBlinker: function () {
+            window.clearInterval(this.terminalHandle);
+            this.terminalHandle = null;
+            this.$('#crushit-command').text('');          
+        }        
     });
     
     return LeftPanel;

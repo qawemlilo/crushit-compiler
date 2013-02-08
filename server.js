@@ -3,13 +3,13 @@
 */
 
 var connect = require('connect'),
-    crushit = require('./node_modules/crushit/lib/app'), 
+    crushit = require('crushit'), 
     http = require('http'), 
     app;
 
 
 app = connect()
-  .use(connect.static('production')) // uncomment when deploying
+  .use(connect.static('app')) // uncomment when deploying
   .use(connect.bodyParser())
   .use('/crush', crush);
 
