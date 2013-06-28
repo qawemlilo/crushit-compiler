@@ -4,11 +4,11 @@
 define(['views/left-panel'], function (Panel) {
     "use strict";
     
-    var CrushIt = {
-        init: function () {
-            var panel = new Panel();
-        }
+    var CrushIt = function () {};
+    
+    CrushIt.prototype.init = function () {
+        this.leftPanel = new Panel();
     };
   
-    return CrushIt;
+    return new CrushIt();
 })

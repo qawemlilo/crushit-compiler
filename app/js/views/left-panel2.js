@@ -1,5 +1,5 @@
 
-define(['./console'], function (Console) {
+define(['./console', '../libs/backbone', '../models/request'], function (Console, Backbone,  Request) {
     "use strict";
     
     var LeftPanel = Backbone.View.extend({
@@ -15,12 +15,14 @@ define(['./console'], function (Console) {
         showingError: false,
         
         
+        data: {},
+        
+        
         terminalHandle: null,
         
         
-        
         events: {
-            'submit #crushit': 'crushIt',
+            'submit #crushit': 'onSubmit',
             'focus #url':  'onUrlFocus',
             'blur #url':  'onUrlBlur',
             'change #max': 'onOptionsChange',
@@ -32,35 +34,48 @@ define(['./console'], function (Console) {
         
         initialize: function () {
             this.console = new Console();
+            this.data = new Request();
             
-            this.listenTo(this, 'init', this.init);
-            this.listenTo(this, 'loading', this.loading);
-            this.listenTo(this, 'loaded', this.loaded);
-            this.listenTo(this, 'error', this.onError);
+            this.listenTo(this.data, 'change', this.crushIt);
+            this.on('loading', this.loading);
+            this.on('loaded', this.loaded);
+            this.on('error', this.onError);
 
             this.blink();            
         },
+
         
         
-        
-        
-        crushIt: function () {
+        onSubmit: function () {
             // Is CrushIt at work?
             if (this.active) {
                 return false;
             }
             
+            this.active = true;
+            
+            var query = this.$('#crushit').serialize();
+            
+            this.$('#submit').addClass('disabled').attr('disabled', 'disabled');
+            this.switchOfBlinker();
+            
+ 
+            this.data.set({data: query});
+        },
+        
+        
+        
+        
+        
+        crushIt: function () {
+            
             this.trigger('init');  
             
-            var self = this, 
-                url = self.$("#url").val(), 
-                query = self.$('#crushit').serialize();
+            var self = this;
             
-            self.switchOfBlinker();
-            
-            self.runTerminal(url, function () {
+            self.runTerminal(this.$('#url').val(), function () {
                 self.trigger('loading');
-                self.sendRequest('http://localhost:8080/crush', query, 'text', url);
+                self.request('/crush', this.data.data, 'text');
             });
             
             return false;
@@ -68,7 +83,7 @@ define(['./console'], function (Console) {
         
         
         
-        sendRequest: function (url, data, format, cacheUrl) {
+        request: function (url, data, format) {
             var self = this;
             
             $.post(url, data, format)
@@ -98,14 +113,6 @@ define(['./console'], function (Console) {
             $('#loading').removeClass('loading-inactive').addClass('loading-active');
             this.active = true;
         },
-
-        
-        
-        init: function () {
-            this.$('#submit').addClass('disabled').attr('disabled', 'disabled');
-            this.active = true; 
-        },
-        
         
         
         loaded: function () {
