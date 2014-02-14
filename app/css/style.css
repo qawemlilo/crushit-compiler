@@ -45,7 +45,7 @@ html, body {
 }
 
 #console, #app-body .well {
- border: 1px solid #0088CC;
+ border: 1px solid #d4d4d4;
  -webkit-box-sizing: border-box !important; /* Safari/Chrome, other WebKit */
  -moz-box-sizing: border-box !important;    /* Firefox, other Gecko */
  box-sizing: border-box !important;   
@@ -93,4 +93,3 @@ img.loading-inactive {
 .row-fluid .credit {
  margin: 10px 10px 0px 10px;
 }
-
