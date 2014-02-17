@@ -44,7 +44,9 @@ define(['./console'], function (Console) {
         
         
         
-        crushIt: function () {
+        crushIt: function (e) {
+            e.preventDefault();
+            
             // Is CrushIt at work?
             if (this.active) {
                 return false;
@@ -60,10 +62,8 @@ define(['./console'], function (Console) {
             
             self.runTerminal(url, function () {
                 self.trigger('loading');
-                self.sendRequest('http://localhost:8080/crush', query, 'text', url);
+                self.sendRequest('http://crushit-compiler.herokuapp.com/crush', query, 'text', url);
             });
-            
-            return false;
         },
         
         
