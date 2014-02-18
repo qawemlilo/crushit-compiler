@@ -6132,6 +6132,10 @@ img.loading-inactive {
 .row-fluid .credit {
  margin: 10px 10px 0px 10px;
 }
+
+.navbar .brand {
+  color: #0088cc;
+}
 /*!
  * Bootstrap Responsive v2.2.2
  *
