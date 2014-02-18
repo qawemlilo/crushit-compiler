@@ -1,84 +1,82 @@
 $(function () {
     "use strict";
     
-    var el = $('#left-panel'), 
-        console = $('#console'),
+    var display = $('#console'),
+        terminalHandle = null,
         App; 
         
     
     App = {
+    
+        el: $('#left-panel'),
+        
         
         active: false,
         
         
+        blinking: false,
+        
+        
         showingError: false,
-        
-        
-        terminalHandle: null,
-        
-        
-        
-        events: function () {
-            var self = this;
-            
-            el.on('submit', '#crushit', function (e) {
-                self.crushIt(e);
-            })
-            
-            .on('focus', '#url', function (e) {
-                self.onUrlFocus(e);
-            })
-            
-            .on('blur', '#url', function (e) {
-                self.onUrlBlur(e);
-            })
-            
-            .on('change', '#max', function (e) {
-                self.onOptionsChange(e);
-            })
-            
-            .on('change', '#comments', function (e) {
-                self.onOptionsChange(e);
-            })
-            
-            .on('change', '#beautify', function (e) {
-                self.onOptionsChange(e);
-            })
-            
-            .on('init', function () {
-                self.initialize();
-            })
-            
-            .on('loading', function () {
-                self.loading();
-            })
-            
-            
-            .on('loaded', function () {
-                self.loaded();
-            })
-            
-            .on('error', function () {
-                self.onError();
-            });
-        },
-        
-        
 
     
         update: function (data) {
-            console.val(data);
+            display.val(data);
         },
         
         
         initialize: function () {
             var self = this;
             
-            self.events();
+            self.el.on('init', function () {
+                self.initialize();
+            })
+            .on('loading', function () {
+                self.loading();
+            })
+            .on('loaded', function () {
+                self.loaded();
+            })
+            .on('error', function () {
+                self.onError();
+            });
+            
+            $('#crushit').on('submit', function (e) {
+                self.crushIt(e);
+            });
+            
+            $('#url').on('focus', function () {
+                if (self.active) {
+                    console.log('active');
+                    return false;
+                }
+                
+                //$('#url').val('');
+                document.forms.crushit.reset();
+                self.update('');
+                self.switchOfBlinker();
+            })
+            .on('blur', function () {
+                if (!$('#url').val() && !self.active) {
+                    self.blink();
+                }
+            });
+            
+            $('#max').on('change', function () {
+                self.onOptionsChange('max');
+            });
+            
+            $('#comments').on('change', function () {
+                self.onOptionsChange('comments');
+            });
+            
+            $('#beautify').on('change', function () {
+                self.onOptionsChange('beautify');
+            });
+            
+            
             self.blink();            
         },
-        
-        
         
         
         crushIt: function (e) {
@@ -89,45 +87,38 @@ $(function () {
                 return false;
             }
             
-            el.trigger('init');  
-            
             var self = this, 
-                url = el.find("#url").val(), 
-                query = el.find('#crushit').serialize();
-            
-            self.switchOfBlinker();
+                url = self.el.find("#url").val(), 
+                query = self.el.find('#crushit').serialize();
             
             self.runTerminal(url, function () {
-                el.trigger('loading');
+                self.el.trigger('loading');
                 self.sendRequest('/crush', query, 'text', url);
             });
         },
         
         
-        
-        sendRequest: function (url, data, format, cacheUrl) {
+        sendRequest: function (url, data, format) {
             var self = this;
             
             $.post(url, data, format)
             
             .done(function (code) {
                 self.update(code);
-                el.trigger('loaded');  
+                self.el.trigger('loaded');  
             })
             
             .fail(function (xhr) {
-                el.trigger('error');
                 self.update(xhr.responseText);
+                self.el.trigger('error');
             });        
         },
         
         
-        
-        
         loading: function () {
             if (this.showingError) {
-                console.removeClass('error');
                 this.showingError = false;
+                display.removeClass('error');
             }
             
             this.update('Crushing scripts....');
@@ -135,14 +126,6 @@ $(function () {
             $('#loading').removeClass('loading-inactive').addClass('loading-active');
             this.active = true;
         },
-
-        
-        
-        init: function () {
-            el.find('#submit').addClass('disabled').attr('disabled', 'disabled');
-            this.active = true; 
-        },
-        
         
         
         loaded: function () {
@@ -150,56 +133,32 @@ $(function () {
         },
         
         
-        
-        
         reset: function () {
-            el.find('#submit').removeClass('disabled').attr('disabled', false);        
+            this.el.find('#submit').removeClass('disabled').attr('disabled', false);        
             $('#loading').removeClass('loading-active').addClass('loading-inactive'); 
             this.active = false;            
         },
         
         
-        
         onError: function () {
-            console.addClass('error');
+            display.addClass('error');
             this.showingError = true;
             this.reset();
         },
         
-
-
-        onUrlFocus: function () {           
-            if (this.active) {
-                return false;
+        onOptionsChange: function (box) {
+            if (box === 'max') {
+                this.el.find('#comments, #beautify').attr("checked", false);
             }
-            el.find('#url').val('');
-            this.update('');
-            this.switchOfBlinker();
-        },
-        
-        
-        
- 
-        onUrlBlur: function () {
-            if (!$('#url').val() && !this.active) {
-                this.blink();
+            if ($('#max').is(':checked') && (box === 'comments' || box === 'beautify')) {
+                this.el.find('#max').attr("checked", false);
             }
         },
-        
-        
-        
-        
-        onOptionsChange: function () {
-            if ($('#max').is(':checked')) {
-                el.find('#comments, #beautify').attr("checked", false);
-            }
-        },
-        
         
         
         runTerminal: function (url, next) {
             var command = this.getCommand(url), 
-                terminal = el.find('#crushit-command');
+                terminal = this.el.find('#crushit-command');
             
             terminal.text("");
             
@@ -212,8 +171,6 @@ $(function () {
             .promise()
             .done(next);
         },
-        
-        
         
         
         getCommand: function (url) {
@@ -236,16 +193,20 @@ $(function () {
             }
 
             
-             return command += url;          
+            return command += url;          
         },
-        
         
 
         blink: function () {
-            var self = this, terminal = el.find('#crushit-command'), on = false;
-
+            if (this.blinking || this.active) {
+                return false;
+            }
+            
+            var terminal = $('#crushit-command'), on = false;
+            
+            this.blinking = true;
                 
-            self.terminalHandle = setInterval(function () {
+            terminalHandle = setInterval(function () {
                 if (on) { 
                     terminal.text('');
                     on = false;
@@ -258,11 +219,10 @@ $(function () {
         },
 
 
-
         switchOfBlinker: function () {
-            clearInterval(this.terminalHandle);
-            this.terminalHandle = null;
-            el.find('#crushit-command').text('');          
+            clearInterval(terminalHandle);
+            $('#crushit-command').text(''); 
+            this.blinking = false;            
         }        
     };
     
