@@ -20,6 +20,10 @@ http.createServer(app).listen(port, function() {
   console.log('Running on port %s', port);
 });
 
+process.on('uncaughtException', function(err) {
+  console.log('Caught exception: ' + err);
+});
+
 
 
 function crush (req, res) {
@@ -31,6 +35,13 @@ function crush (req, res) {
         
     if (url[0] === 'w') {
         url = 'http://' + url;
+    }
+    
+    if (!isURL(url)) {
+        res.statusCode = 500;
+        res.end(error);
+        
+        return;
     }
     
     crushit.squeeze({
@@ -50,4 +61,11 @@ function crush (req, res) {
             res.end(code); 
         }
     });
+}
+
+
+function isURL(str) {
+    var urlReg = /^(?!mailto:)(?:(?:https?|ftp):\/\/)?(?:\S+(?::\S*)?@)?(?:(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[0-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))|localhost)(?::\d{2,5})?(?:\/[^\s]*)?$/i;
+    
+    return str.length < 2083 && urlReg.test(str);
 }

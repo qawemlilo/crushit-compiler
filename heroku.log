@@ -1,0 +1,102 @@
+2014-02-20T18:42:42.533275+00:00 heroku[router]: at=info method=GET path=/js/libs/codemirror-compressed.js host=crushit.ragingflame.co.za request_id=e7b243c4-1a87-4ddc-954a-c7566ac03b11 fwd="71.179.89.226" dyno=web.1 connect=61ms service=28ms status=200 bytes=126396
+2014-02-20T18:45:48.262743+00:00 heroku[router]: at=info method=GET path=/css/main.min.css host=crushit-compiler.herokuapp.com request_id=f7712e10-6bea-4c38-b318-890952fbad0b fwd="71.202.249.139" dyno=web.1 connect=1ms service=9ms status=200 bytes=148152
+2014-02-20T18:45:48.379083+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit-compiler.herokuapp.com request_id=bdd666ce-81c1-46ee-abb8-c8cd8356b8ed fwd="71.202.249.139" dyno=web.1 connect=8ms service=5ms status=200 bytes=1097
+2014-02-20T18:45:48.396644+00:00 heroku[router]: at=info method=GET path=/js/libs/codemirror-compressed.js host=crushit-compiler.herokuapp.com request_id=2e6aa609-691e-4a9a-9d67-9b537a65c8cd fwd="71.202.249.139" dyno=web.1 connect=5ms service=8ms status=200 bytes=126396
+2014-02-20T18:45:48.019935+00:00 heroku[router]: at=info method=GET path=/ host=crushit-compiler.herokuapp.com request_id=4d93b2b2-2185-48d3-b06f-e3f2e3569a00 fwd="71.202.249.139" dyno=web.1 connect=44ms service=8ms status=200 bytes=3905
+2014-02-20T18:45:49.246538+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=crushit-compiler.herokuapp.com request_id=e3e01f4d-9f99-4269-a287-62b4c8754ec7 fwd="71.202.249.139" dyno=web.1 connect=0ms service=4ms status=404 bytes=170
+2014-02-20T18:44:47.797303+00:00 heroku[router]: at=info method=GET path=/ host=crushit.ragingflame.co.za request_id=79240293-2eb4-4435-a760-e6ee21f13204 fwd="50.16.61.40" dyno=web.1 connect=0ms service=16ms status=200 bytes=3905
+2014-02-20T18:46:10.561848+00:00 app[web.1]: TypeError: first argument must be a string or Buffer
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at ServerResponse.OutgoingMessage.write (http.js:749:11)
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at ServerResponse.OutgoingMessage.end (http.js:901:16)
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at CrushIt.squeeze (/app/node_modules/crushit/lib/crushit.js:64:16)
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at /app/server.js:50:17
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at Request.CrushIt.loadWebPage [as _callback] (/app/node_modules/crushit/lib/crushit.js:120:17)
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at Request.init.self.callback (/app/node_modules/crushit/node_modules/request/request.js:121:22)
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at Request.EventEmitter.emit (events.js:96:17)
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at Request.init.self._buildRequest (/app/node_modules/crushit/node_modules/request/request.js:336:39)
+2014-02-20T18:46:10.561848+00:00 app[web.1]:     at Request.init (/app/node_modules/crushit/node_modules/request/request.js:503:10)
+2014-02-20T18:46:10.563171+00:00 heroku[router]: at=error code=H13 desc="Connection closed without response" method=POST path=/crush host=crushit-compiler.herokuapp.com request_id=71a9242d-efa5-455e-8fac-daf19a910d91 fwd="71.202.249.139" dyno=web.1 connect=4ms service=8ms status=503 bytes=0
+2014-02-20T18:46:10.562094+00:00 app[web.1]:     at new Request (/app/node_modules/crushit/node_modules/request/request.js:97:8)
+2014-02-20T18:45:48.854349+00:00 heroku[router]: at=info method=GET path=/img/glyphicons-halflings.png host=crushit-compiler.herokuapp.com request_id=ea600ccf-64c5-4b82-956a-9e7d97d36941 fwd="71.202.249.139" dyno=web.1 connect=14ms service=40ms status=200 bytes=13053
+2014-02-20T18:46:25.387173+00:00 app[web.1]: TypeError: first argument must be a string or Buffer
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at ServerResponse.OutgoingMessage.write (http.js:749:11)
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at ServerResponse.OutgoingMessage.end (http.js:901:16)
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at CrushIt.squeeze (/app/node_modules/crushit/lib/crushit.js:64:16)
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at Request.CrushIt.loadWebPage [as _callback] (/app/node_modules/crushit/lib/crushit.js:120:17)
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at /app/server.js:50:17
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at Request.init.self.callback (/app/node_modules/crushit/node_modules/request/request.js:121:22)
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at Request.init (/app/node_modules/crushit/node_modules/request/request.js:503:10)
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at Request.EventEmitter.emit (events.js:96:17)
+2014-02-20T18:46:25.387455+00:00 app[web.1]:     at new Request (/app/node_modules/crushit/node_modules/request/request.js:97:8)
+2014-02-20T18:46:25.387173+00:00 app[web.1]:     at Request.init.self._buildRequest (/app/node_modules/crushit/node_modules/request/request.js:336:39)
+2014-02-20T18:45:48.362960+00:00 heroku[router]: at=info method=GET path=/js/app.min.js host=crushit-compiler.herokuapp.com request_id=59a5ed7c-0d8e-4b17-8334-7e8351a997cb fwd="71.202.249.139" dyno=web.1 connect=0ms service=3ms status=200 bytes=3460
+2014-02-20T18:45:48.372077+00:00 heroku[router]: at=info method=GET path=/js/libs/jquery.js host=crushit-compiler.herokuapp.com request_id=5d24ae0c-26f0-4fc1-bec9-e6f4d3d253a4 fwd="71.202.249.139" dyno=web.1 connect=2ms service=10ms status=200 bytes=92897
+2014-02-20T18:47:47.292029+00:00 heroku[router]: at=info method=GET path=/css/main.min.css host=crushit.ragingflame.co.za request_id=8b382902-f001-4775-8bbf-f888fe0a2696 fwd="197.229.224.18" dyno=web.1 connect=9ms service=17ms status=200 bytes=148152
+2014-02-20T18:47:57.280343+00:00 heroku[router]: at=info method=GET path=/js/libs/codemirror-compressed.js host=crushit.ragingflame.co.za request_id=b9006ad4-08d8-45c8-8a4e-883853468efb fwd="197.229.224.18" dyno=web.1 connect=36ms service=74ms status=200 bytes=126396
+2014-02-20T18:47:57.687325+00:00 heroku[router]: at=info method=GET path=/img/glyphicons-halflings.png host=crushit.ragingflame.co.za request_id=7c8e90cc-f7f1-40fd-989b-9a908690f119 fwd="197.229.224.18" dyno=web.1 connect=5ms service=6ms status=200 bytes=13053
+2014-02-20T18:45:48.259556+00:00 heroku[router]: at=info method=GET path=/css/codemirror.css host=crushit-compiler.herokuapp.com request_id=8515f5fa-d5a4-402b-aee2-3d9cf04b7578 fwd="71.202.249.139" dyno=web.1 connect=0ms service=3ms status=200 bytes=6465
+2014-02-20T18:47:47.740433+00:00 heroku[router]: at=info method=GET path=/css/codemirror.css host=crushit.ragingflame.co.za request_id=c073cca7-878f-4877-bce2-762c217f901f fwd="197.229.224.18" dyno=web.1 connect=3ms service=6ms status=200 bytes=6465
+2014-02-20T18:47:57.695943+00:00 heroku[router]: at=info method=GET path=/js/app.min.js host=crushit.ragingflame.co.za request_id=8a8d5b8b-c200-4332-b5be-6010353c8369 fwd="197.229.224.18" dyno=web.1 connect=1ms service=5ms status=200 bytes=3460
+2014-02-20T18:48:48.916096+00:00 heroku[router]: at=info method=GET path=/ host=crushit.ragingflame.co.za request_id=1512f6df-8f6b-4a82-93a1-0dff7dd69a16 fwd="37.190.224.248" dyno=web.1 connect=5ms service=7ms status=200 bytes=3905
+2014-02-20T18:48:49.212196+00:00 heroku[router]: at=info method=GET path=/css/codemirror.css host=crushit.ragingflame.co.za request_id=0695ff38-9f4d-469b-b07b-d0571dd8150f fwd="37.190.224.248" dyno=web.1 connect=0ms service=2ms status=200 bytes=6465
+2014-02-20T18:48:49.236269+00:00 heroku[router]: at=info method=GET path=/js/libs/codemirror-compressed.js host=crushit.ragingflame.co.za request_id=a70a6fa7-094b-4d98-9f05-4d627d560d67 fwd="37.190.224.248" dyno=web.1 connect=0ms service=11ms status=200 bytes=126396
+2014-02-20T18:48:50.037078+00:00 heroku[router]: at=info method=GET path=/img/glyphicons-halflings.png host=crushit.ragingflame.co.za request_id=a50be282-ea37-4e67-8e50-42328bd31fea fwd="37.190.224.248" dyno=web.1 connect=2ms service=3ms status=200 bytes=13053
+2014-02-20T18:48:50.388526+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=crushit.ragingflame.co.za request_id=f86b5a15-9632-4b8f-97ab-9a0df898547d fwd="37.190.224.248" dyno=web.1 connect=1ms service=2ms status=404 bytes=170
+2014-02-20T18:48:49.220809+00:00 heroku[router]: at=info method=GET path=/js/libs/jquery.js host=crushit.ragingflame.co.za request_id=888adb76-5393-4e37-b21d-1e467ff5df9b fwd="37.190.224.248" dyno=web.1 connect=0ms service=5ms status=200 bytes=92897
+2014-02-20T18:47:46.502135+00:00 heroku[router]: at=info method=GET path=/ host=crushit.ragingflame.co.za request_id=33326691-03ad-44f2-9b8e-2f409c3fae02 fwd="197.229.224.18" dyno=web.1 connect=3ms service=23ms status=200 bytes=3905
+2014-02-20T18:49:07.584943+00:00 app[web.1]:  > found inline script(1)
+2014-02-20T18:49:07.584943+00:00 app[web.1]:  > Preparing to download external scripts....
+2014-02-20T18:47:57.751633+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit.ragingflame.co.za request_id=66f9ad1e-e23f-4307-adf2-454663255507 fwd="197.229.224.18" dyno=web.1 connect=14ms service=11ms status=200 bytes=1097
+2014-02-20T18:47:57.186997+00:00 heroku[router]: at=info method=GET path=/js/libs/jquery.js host=crushit.ragingflame.co.za request_id=ee3058f9-727b-491a-8a1b-4bb5aed92bee fwd="197.229.224.18" dyno=web.1 connect=66ms service=28ms status=200 bytes=92897
+2014-02-20T18:48:49.227916+00:00 heroku[router]: at=info method=GET path=/js/app.min.js host=crushit.ragingflame.co.za request_id=8ca69eaa-2de2-4579-a060-8635431a7423 fwd="37.190.224.248" dyno=web.1 connect=1ms service=4ms status=200 bytes=3460
+2014-02-20T18:50:42.241790+00:00 heroku[router]: at=info method=GET path=/ host=crushit-compiler.herokuapp.com request_id=a78f1f0b-fba4-4872-93ef-d018290b31ee fwd="17.218.74.178" dyno=web.1 connect=1ms service=2ms status=200 bytes=3905
+2014-02-20T18:50:42.424107+00:00 heroku[router]: at=info method=GET path=/css/main.min.css host=crushit-compiler.herokuapp.com request_id=c9c7498e-585e-4649-b3ce-e711157d63f7 fwd="17.218.74.178" dyno=web.1 connect=1ms service=9ms status=200 bytes=148152
+2014-02-20T18:50:42.918197+00:00 heroku[router]: at=info method=GET path=/img/glyphicons-halflings.png host=crushit-compiler.herokuapp.com request_id=99b21a68-5e2e-439a-bdef-2a493e523b8b fwd="17.218.74.178" dyno=web.1 connect=1ms service=4ms status=200 bytes=13053
+2014-02-20T18:50:42.501553+00:00 heroku[router]: at=info method=GET path=/js/app.min.js host=crushit-compiler.herokuapp.com request_id=a6c92b48-9214-46ea-bf68-cdb13f6a0843 fwd="17.218.74.178" dyno=web.1 connect=1ms service=3ms status=200 bytes=3460
+2014-02-20T18:50:42.423338+00:00 heroku[router]: at=info method=GET path=/css/codemirror.css host=crushit-compiler.herokuapp.com request_id=ec14cf5e-6756-46cb-89d8-34fc8a0d73fc fwd="17.218.74.178" dyno=web.1 connect=0ms service=3ms status=200 bytes=6465
+2014-02-20T18:48:49.226305+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit.ragingflame.co.za request_id=c91a7e6c-ea90-4b78-8190-a275462ef510 fwd="37.190.224.248" dyno=web.1 connect=0ms service=3ms status=200 bytes=1097
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at /app/server.js:50:17
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at Request.CrushIt.loadWebPage [as _callback] (/app/node_modules/crushit/lib/crushit.js:120:17)
+2014-02-20T18:51:07.562362+00:00 app[web.1]: TypeError: first argument must be a string or Buffer
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at ServerResponse.OutgoingMessage.write (http.js:749:11)
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at ServerResponse.OutgoingMessage.end (http.js:901:16)
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at Request.init.self.callback (/app/node_modules/crushit/node_modules/request/request.js:121:22)
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at CrushIt.squeeze (/app/node_modules/crushit/lib/crushit.js:64:16)
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at Request.init (/app/node_modules/crushit/node_modules/request/request.js:503:10)
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at new Request (/app/node_modules/crushit/node_modules/request/request.js:97:8)
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at Request.EventEmitter.emit (events.js:96:17)
+2014-02-20T18:51:07.562499+00:00 app[web.1]:     at Request.init.self._buildRequest (/app/node_modules/crushit/node_modules/request/request.js:336:39)
+2014-02-20T18:51:19.671710+00:00 app[web.1]:  > found inline script(1)
+2014-02-20T18:51:19.672242+00:00 app[web.1]:  > found inline script(2)
+2014-02-20T18:51:19.672242+00:00 app[web.1]:  > found inline script(3)
+2014-02-20T18:51:19.672400+00:00 app[web.1]:  > found inline script(4)
+2014-02-20T18:51:19.672400+00:00 app[web.1]:  > found inline script(5)
+2014-02-20T18:51:19.672400+00:00 app[web.1]:  > found inline script(6)
+2014-02-20T18:51:19.672491+00:00 app[web.1]:  > found inline script(7)
+2014-02-20T18:51:19.767625+00:00 heroku[router]: at=info method=POST path=/crush host=crushit-compiler.herokuapp.com request_id=7350fbea-85f4-4e05-b53c-28b46577e6c7 fwd="17.218.74.178" dyno=web.1 connect=1ms service=179ms status=200 bytes=22077
+2014-02-20T18:51:19.672744+00:00 app[web.1]:  > found inline script(8)
+2014-02-20T18:51:19.672744+00:00 app[web.1]:  > Preparing to download external scripts....
+2014-02-20T18:51:07.565434+00:00 heroku[router]: at=error code=H13 desc="Connection closed without response" method=POST path=/crush host=crushit-compiler.herokuapp.com request_id=c9993cfe-bc7e-4afc-b786-69024d8463be fwd="17.218.74.178" dyno=web.1 connect=2ms service=7ms status=503 bytes=0
+2014-02-20T18:50:42.503733+00:00 heroku[router]: at=info method=GET path=/js/libs/jquery.js host=crushit-compiler.herokuapp.com request_id=03d607f2-2643-4d6a-9df5-847e09642af7 fwd="17.218.74.178" dyno=web.1 connect=0ms service=8ms status=200 bytes=92897
+2014-02-20T18:50:42.422602+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit-compiler.herokuapp.com request_id=469e8ddd-c1aa-4552-b475-57fdada3cc1d fwd="17.218.74.178" dyno=web.1 connect=1ms service=3ms status=200 bytes=1097
+2014-02-20T18:52:32.993067+00:00 heroku[router]: at=info method=GET path=/css/main.min.css host=crushit-compiler.herokuapp.com request_id=834f008e-c51b-4a45-8bc3-11219f305cd1 fwd="17.208.97.21" dyno=web.1 connect=1ms service=10ms status=200 bytes=148152
+2014-02-20T18:52:33.032426+00:00 heroku[router]: at=info method=GET path=/js/libs/jquery.js host=crushit-compiler.herokuapp.com request_id=3aef21e4-972b-494e-bf7e-0da7ac380a70 fwd="17.208.97.21" dyno=web.1 connect=2ms service=7ms status=200 bytes=92897
+2014-02-20T18:52:33.029248+00:00 heroku[router]: at=info method=GET path=/css/codemirror.css host=crushit-compiler.herokuapp.com request_id=e98b95d9-0cef-404e-b969-50df83df66df fwd="17.208.97.21" dyno=web.1 connect=1ms service=5ms status=200 bytes=6465
+2014-02-20T18:52:33.053092+00:00 heroku[router]: at=info method=GET path=/js/app.min.js host=crushit-compiler.herokuapp.com request_id=1a3584b5-8a1a-4cbd-8545-1a2e676ae4cc fwd="17.208.97.21" dyno=web.1 connect=7ms service=8ms status=200 bytes=3460
+2014-02-20T18:52:33.031388+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit-compiler.herokuapp.com request_id=26f0c16c-f59c-47d7-8bef-4239f96d37e0 fwd="17.208.97.21" dyno=web.1 connect=2ms service=4ms status=200 bytes=1097
+2014-02-20T18:52:32.846567+00:00 heroku[router]: at=info method=GET path=/ host=crushit-compiler.herokuapp.com request_id=fdaa99ad-3cf9-4b79-8b73-b44b7d301360 fwd="17.208.97.21" dyno=web.1 c
+onnect=31ms service=66ms status=200 bytes=3905
+2014-02-20T18:52:33.669983+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=crushit-compiler.herokuapp.com request_id=ff4fd0f1-5131-4164-9a53-2ba6956b8d45 fwd="17.208.97.21" dyno=web.1 connect=1ms service=4ms status=404 bytes=170
+2014-02-20T18:52:33.037324+00:00 heroku[router]: at=info method=GET path=/js/libs/codemirror-compressed.js host=crushit-compiler.herokuapp.com request_id=70697fde-4fdf-4dc8-9782-6465a3116d44 fwd="17.208.97.21" dyno=web.1 connect=1ms service=10ms status=200 bytes=126396
+2014-02-20T18:54:19.532911+00:00 heroku[router]: at=info method=GET path=/css/codemirror.css host=crushit.ragingflame.co.za request_id=2b1ef577-8c3d-4604-9641-9dad3e19ac0b fwd="217.208.126.183" dyno=web.1 connect=9ms service=4ms status=200 bytes=6465
+2014-02-20T18:54:20.063354+00:00 heroku[router]: at=info method=GET path=/js/libs/jquery.js host=crushit.ragingflame.co.za request_id=b4d2d293-0b3f-4591-beed-a92fed84ed1b fwd="217.208.126.183" dyno=web.1 connect=1ms service=6ms status=200 bytes=92897
+2014-02-20T18:54:20.516602+00:00 heroku[router]: at=info method=GET path=/js/libs/codemirror-compressed.js host=crushit.ragingflame.co.za request_id=022dd9d4-b719-4293-bd5d-d2d9f3eb8754 fwd="217.208.126.183" dyno=web.1 connect=9ms service=26ms status=200 bytes=126396
+2014-02-20T18:54:21.148755+00:00 heroku[router]: at=info method=GET path=/img/glyphicons-halflings.png host=crushit.ragingflame.co.za request_id=0650e90e-4274-4cf7-ba1a-ec72fde31e86 fwd="217.208.126.183" dyno=web.1 connect=2ms service=3ms status=200 bytes=13053
+2014-02-20T18:54:19.381135+00:00 heroku[router]: at=info method=GET path=/css/main.min.css host=crushit.ragingflame.co.za request_id=6c235cff-46c6-45c6-84d9-d60c570941e2 fwd="217.208.126.183" dyno=web.1 connect=0ms service=7ms status=200 bytes=148152
+2014-02-20T18:54:21.134299+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit.ragingflame.co.za request_id=e76178ee-f740-45e6-a9f5-1dd999f157f9 fwd="217.208.126.183" dyno=web.1 connect=3ms service=2ms status=200 bytes=1097
+2014-02-20T18:55:05.532783+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit.ragingflame.co.za request_id=94162287-04ee-4690-9e58-8a0ebc8a4053 fwd="81.214.46.72" dyno=web.1 connect=3ms service=5ms status=200 bytes=1097
+2014-02-20T18:55:05.418408+00:00 heroku[router]: at=info method=GET path=/css/main.min.css host=crushit.ragingflame.co.za request_id=3f9a0454-839e-4f32-b680-18f9bb68c310 fwd="81.214.46.72" dyno=web.1 connect=2ms service=109ms status=200 bytes=148152
+2014-02-20T18:55:05.530214+00:00 heroku[router]: at=info method=GET path=/js/libs/jquery.js host=crushit.ragingflame.co.za request_id=2a4ad272-4fb2-4e9e-9c3f-1a512672b565 fwd="81.214.46.72" dyno=web.1 connect=3ms service=13ms status=200 bytes=92897
+2014-02-20T18:54:19.225249+00:00 heroku[router]: at=info method=GET path=/ host=crushit.ragingflame.co.za request_id=2782dc25-dc30-479c-a23f-18466a3a1a6e fwd="217.208.126.183" dyno=web.1 connect=2ms service=5ms status=200 bytes=3905
+2014-02-20T18:55:11.621509+00:00 heroku[router]: at=info method=GET path=/js/app.min.js host=crushit.ragingflame.co.za request_id=aa38a5c4-3d54-485a-b6f6-50e8c7101fd1 fwd="197.229.224.18" dyno=web.1 connect=103ms service=35ms status=304 bytes=215
+2014-02-20T18:55:11.503611+00:00 heroku[router]: at=info method=GET path=/img/loading.gif host=crushit.ragingflame.co.za request_id=d59f637c-a35a-478b-ae04-3bc4f167a11e fwd="197.229.224.18" dyno=web.1 connect=12ms service=4ms status=304 bytes=214
