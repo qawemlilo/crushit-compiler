@@ -6,9 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="CrushIt Compiler crawls through a web page and crushes all scripts into a single file.">
 <meta name="author" content="Qawelesizwe Mlilo">
-<script type="text/javascript" src="js/libs/jquery.js"></script>
-<script type="text/javascript" src="js/app.min.js"></script>
 <link rel="stylesheet" href="css/main.min.css">
+<link rel="stylesheet" href="css/codemirror.css">
 <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +19,7 @@
       
     <div class="navbar navbar-static-top">
       <div class="navbar-inner">
-        <a class="brand" href="#">CrushIt Compiler <sup>v0.2.5</sup></a>
+        <a class="brand" href="#">CrushIt Compiler <sup>v0.3.3</sup></a>
       </div>
     </div>
       
@@ -35,23 +34,23 @@
                 <input type="text" name="url" id="url" placeholder="Enter web page url" class="input-xlarge" style="width: 75%; margin-bottom: 0px;" value="" /> <input class="btn btn-primary pull-right" type="submit" value="CrushIt" id="submit" name="submit" style="font-weight: bold" />
                 <br />
                 <label class="checkbox inline">
-                  <input type="checkbox" id="beautify" name="beautify" > Beautify <br> Output
+                  <input type="checkbox" id="beautify" name="beautify"> Beautify <br> Output
                 </label> 
                 <label class="checkbox inline">
-                  <input type="checkbox" id="comments" name="comments" > Keep <br> Comments
+                  <input type="checkbox" id="comments" name="comments"> Keep <br> Comments
                 </label> 
                 <label class="checkbox inline">
-                  <input type="checkbox" id="mangle" name="mangle" > Mangle<br> Names
+                  <input type="checkbox" id="mangle" name="mangle"> Mangle<br> Names
                 </label> 
                 <label class="checkbox inline">
-                  <input type="checkbox" id="max" name="max" > Maximum<br> Optimisation
+                  <input type="checkbox" id="max" name="max"> Maximum<br> Optimisation
                 </label> 
               </form>
             </div>
           </div>
         </div>
         
-        <div class="span8 console-cont" style="width: 67.35%; margin-left: 1%;">
+        <div class="span8 console-cont" style="width: 67.35%; margin-left: 1%; border: 1px solid #e6e6e6">
           <textarea rows="3" placeholder="Console" id="console"></textarea>
         </div>
       </div>
@@ -64,6 +63,10 @@
       <p class="muted credit  pull-right"><i class="icon-download-alt"></i> <a href="https://github.com/qawemlilo/crushit-compiler" target="_blank">Fork me on Github</a>.</p>
     </div>
   </div>
+  
+<script type="text/javascript" src="js/libs/jquery.js"></script>
+<script type="text/javascript" src="js/libs/codemirror-compressed.js"></script>
+<script type="text/javascript" src="js/app.min.js"></script>
 </body>
 </html>
 

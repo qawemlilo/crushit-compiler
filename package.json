@@ -1,10 +1,10 @@
 {
   "name": "crushit-compiler",
-  "version": "0.0.1",
+  "version": "0.3.1",
   "private": true,
   "dependencies": {
     "connect": "2.7.x",
-    "crushit": "latest"
+    "crushit": "~0.3.2"
   },
   "devDependencies": {
     "mocha": "latest",

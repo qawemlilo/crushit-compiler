@@ -26,27 +26,28 @@ function crush (req, res) {
     var url = req.body.url, 
         beautify  = !!req.body.beautify,
         comments  = !!req.body.comments,
-        max  = !!req.body.max;
+        max  = !!req.body.max,
+        mangle = !!req.body.mangle;
         
     if (url[0] === 'w') {
         url = 'http://' + url;
     }
     
-    crushit.crushScripts(url, {
+    crushit.squeeze({
+        website: url,
         beautify: beautify,
-        
         comments: comments,
-        
         max: max,
-        
-        onComplete: function (error, code) {
-            if (error) {
-                res.statusCode = 500;
-                res.end(error.msg);
-            } 
-            else { 
-                res.end(code); 
-            }
+        mangle: mangle
+    },
+    function (error, code) {
+        if (error) {
+            res.statusCode = 500;
+            res.end(error);
+        } 
+        else {
+            res.statusCode = 200;            
+            res.end(code); 
         }
     });
 }

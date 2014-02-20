@@ -3,6 +3,7 @@ $(function () {
     
     var display = $('#console'),
         terminalHandle = null,
+        myCodeMirror,
         App; 
         
     
@@ -21,7 +22,7 @@ $(function () {
 
     
         update: function (data) {
-            display.val(data);
+            myCodeMirror.setValue(data);
         },
         
         
@@ -121,8 +122,6 @@ $(function () {
                 display.removeClass('error');
             }
             
-            this.update('Crushing scripts....');
-            
             $('#loading').removeClass('loading-inactive').addClass('loading-active');
             this.active = true;
         },
@@ -150,8 +149,8 @@ $(function () {
             if (box === 'max') {
                 this.el.find('#comments, #beautify').attr("checked", false);
             }
-            if ($('#max').is(':checked') && (box === 'comments' || box === 'beautify')) {
-                this.el.find('#max').attr("checked", false);
+            if (($('#max').is(':checked') || $('#mangle').is(':checked')) && (box === 'comments' || box === 'beautify')) {
+                this.el.find('#max, #mangle').attr("checked", false);
             }
         },
         
@@ -227,4 +226,15 @@ $(function () {
     };
     
     App.initialize();
+    myCodeMirror = CodeMirror.fromTextArea(document.getElementById("console"), {
+        lineNumbers: true,
+        mode: "text/javascript",
+        tabMode: "indent",
+        matchBrackets: true,
+        lineWrapping: true,
+        readOnly: true,
+        indentUnit: 4
+    });
+    
+    myCodeMirror.setSize('100%', '100%');
 });
