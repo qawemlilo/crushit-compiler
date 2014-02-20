@@ -150,17 +150,34 @@ $(function () {
         },
         
         onOptionsChange: function (box) {
-            var mm = this.el.find('#max, #mangle'),
-                bc = this.el.find('#comments, #beautify');
+            var beautify = $('#beautify'),
+                comments = $('#comments'),
+                maxi = $('#max'),
+                man = $('#mangle');
             
-            if (($('#max').is(':checked') || $('#mangle').is(':checked')) && (box === 'comments' || box === 'beautify')) {
-                mm.attr("checked", false);
+            if (box === 'comments' || box === 'beautify') {
+                if (maxi.is(':checked')) {
+                    maxi.attr("checked", false);
+                } 
+                if (man.is(':checked')) {
+                    man.attr("checked", false);
+                }
             }
-            if (($('#comments').is(':checked') || $('#beautify').is(':checked')) && (box === 'max' || box === 'mangle')) {
-                bc.attr("checked", false);
+            else if (box === 'max' || box === 'mangle') {
+            
+                if (beautify.is(':checked')) {
+                    beautify.attr("checked", false);
+                } 
+                if (comments.is(':checked')) {
+                    comments.attr("checked", false);
+                }
                 
-                if(box === 'mangle' && !$('#max').is(':checked')) {
-                    this.el.find('#max').attr("checked", true);
+                if(box === 'mangle' && man.is(':checked') && !maxi.is(':checked')) {
+                    maxi.attr("checked", true);
+                }
+                
+                if(box === 'max' && !maxi.is(':checked') && man.is(':checked')) {
+                    man.attr("checked", false);
                 }
             }
         },
