@@ -3,7 +3,7 @@
 */
 
 var connect = require('connect'),
-    crushit = require('crushit'), 
+    crushIt = require('crushit'), 
     http = require('http'), 
     app;
 
@@ -27,7 +27,8 @@ process.on('uncaughtException', function(err) {
 
 
 function crush (req, res) {
-    var url = req.body.url, 
+    var url = req.body.url,
+        crusher = new crushIt(),    
         beautify  = !!req.body.beautify,
         comments  = !!req.body.comments,
         max  = !!req.body.max,
@@ -44,7 +45,7 @@ function crush (req, res) {
         return;
     }
     
-    crushit.squeeze({
+    crusher.squeeze({
         website: url,
         beautify: beautify,
         comments: comments,

@@ -1,0 +1,58 @@
+Running on port 8080
+ > found inline script(1)
+ > Preparing downloads.....
+ > found external script(1) - jquery.1.6.4.min.js
+ > found external script(2) - app.js?v=10
+ > found inline script(1)
+ > Preparing downloads.....
+ > downloading http://echojs.com/js/jquery.1.6.4.min.js
+ > download complete: jquery.1.6.4.min.js
+ > downloading http://echojs.com/js/app.js?v=10
+ > download complete: app.js?v=10
+ > found external script(1) - prototype.js
+ > found external script(2) - scriptaculous.js
+ > found external script(3) - sizzle.js
+ > found external script(4) - browserdetect.js
+ > found external script(5) - apple_core.js
+ > found external script(6) - search_decorator.js
+ > found external script(7) - feedstatistics.js
+ > found external script(8) - ac_base.js
+ > found external script(9) - ac_retina.js
+ > found external script(10) - promomanager.js
+ > found inline script(1)
+ > found external script(11) - globalnav.js
+ > found inline script(2)
+ > found inline script(3)
+ > found external script(12) - s_code_h.js
+ > found external script(13) - touch_forcedlink.js
+ > found external script(14) - homepage.js
+ > found inline script(4)
+ > Preparing downloads.....
+ > downloading http://images.apple.com/global/scripts/lib/prototype.js
+ > download complete: prototype.js
+ > downloading http://images.apple.com/global/scripts/lib/scriptaculous.js
+ > download complete: scriptaculous.js
+ > downloading http://images.apple.com/global/scripts/lib/sizzle.js
+ > download complete: sizzle.js
+ > downloading http://images.apple.com/global/scripts/browserdetect.js
+ > download complete: browserdetect.js
+ > downloading http://images.apple.com/global/scripts/apple_core.js
+ > download complete: apple_core.js
+ > downloading http://images.apple.com/global/scripts/search_decorator.js
+ > download complete: search_decorator.js
+ > downloading http://images.apple.com/global/scripts/feedstatistics.js
+ > download complete: feedstatistics.js
+ > downloading http://images.apple.com/global/ac_base/ac_base.js
+ > download complete: ac_base.js
+ > downloading http://images.apple.com/global/ac_retina/ac_retina.js
+ > download complete: ac_retina.js
+ > downloading http://images.apple.com/global/scripts/promomanager.js
+ > download complete: promomanager.js
+ > downloading http://images.apple.com/global/nav/scripts/globalnav.js
+ > download complete: globalnav.js
+ > downloading http://images.apple.com/metrics/scripts/s_code_h.js
+ > download complete: s_code_h.js
+ > downloading http://images.apple.com/metrics/scripts/touch_forcedlink.js
+ > download complete: touch_forcedlink.js
+ > downloading http://images.apple.com/metrics/scripts/homepage.js
+ > download complete: homepage.js
