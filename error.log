@@ -1,0 +1,7 @@
+
+c:\Users\Qawe Mlilo\Desktop\code\dev\crushit-compiler\server.js:79
+    http.emit('error', new Error('Q error'));
+         ^
+TypeError: Object #<Object> has no method 'emit'
+    at newWorkerEnv.clusterStartTime [as _onTimeout] (c:\Users\Qawe Mlilo\Desktop\code\dev\crushit-compiler\server.js:79:10)
+    at Timer.listOnTimeout [as ontimeout] (timers.js:110:15)
