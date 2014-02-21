@@ -20,6 +20,7 @@ http.createServer(app).listen(port, function() {
   console.log('Running on port %s', port);
 });
 
+
 process.on('uncaughtException', function(err) {
   console.log('Caught exception: ' + err);
 });
@@ -40,7 +41,7 @@ function crush (req, res) {
     
     if (!isURL(url)) {
         res.statusCode = 500;
-        res.end('Invalid URL');
+        res.end('Invalid URL :(');
         
         return;
     }
@@ -55,7 +56,7 @@ function crush (req, res) {
     function (error, code) {
         if (error) {
             res.statusCode = 500;
-            res.end(error);
+            res.end('Crushing script from ' + url + ' failed :(');
         } 
         else {
             res.statusCode = 200;            
