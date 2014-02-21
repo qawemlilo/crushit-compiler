@@ -1,8 +1,7 @@
 $(function () {
     "use strict";
     
-    var display = $('#console'),
-        terminalHandle = null,
+    var terminalHandle = null,
         myCodeMirror,
         App; 
         
@@ -10,6 +9,9 @@ $(function () {
     App = {
     
         el: $('#left-panel'),
+        
+        
+        form: $('#crushit'),
         
         
         active: false,
@@ -42,41 +44,45 @@ $(function () {
                 self.onError();
             });
             
-            $('#crushit').on('submit', function (e) {
+            self.form.on('submit', function (e) {
                 self.crushIt(e);
             });
             
-            $('#url').on('focus', function () {
+            self.form.find('#url').on('focus', function () {
                 if (self.active) {
                     console.log('active');
                     return false;
                 }
-                
-                //$('#url').val('');
+
                 document.forms.crushit.reset();
                 self.update('');
                 self.switchOfBlinker();
             })
             .on('blur', function () {
-                if (!$('#url').val() && !self.active) {
+                if (!$(this).val() && !self.active) {
                     self.blink();
                 }
             });
             
-            $('#max').on('change', function () {
-                self.onOptionsChange('max');
+            self.form.find('#max').on('change', function () {
+                self.form.find('#comments').prop("checked", false);
+                self.form.find('#beautify').prop("checked", false);
             });
             
-            $('#mangle').on('change', function () {
-                self.onOptionsChange('mangle');
+            self.form.find('#mangle').on('change', function () {
+                self.form.find('#comments').prop("checked", false);
+                self.form.find('#beautify').prop("checked", false);
+                self.form.find('#max').prop("checked", true);
             });
             
-            $('#comments').on('change', function () {
-                self.onOptionsChange('comments');
+            self.form.find('#comments').on('change', function () {
+                self.form.find('#mangle').prop("checked", false);
+                self.form.find('#max').prop("checked", false);
             });
             
-            $('#beautify').on('change', function () {
-                self.onOptionsChange('beautify');
+            self.form.find('#beautify').on('change', function () {
+                self.form.find('#mangle').prop("checked", false);
+                self.form.find('#max').prop("checked", false);
             });
             
             
@@ -123,7 +129,6 @@ $(function () {
         loading: function () {
             if (this.showingError) {
                 this.showingError = false;
-                display.removeClass('error');
             }
             
             $('#loading').removeClass('loading-inactive').addClass('loading-active');
@@ -144,42 +149,8 @@ $(function () {
         
         
         onError: function () {
-            display.addClass('error');
             this.showingError = true;
             this.reset();
-        },
-        
-        onOptionsChange: function (box) {
-            var beautify = $('#beautify'),
-                comments = $('#comments'),
-                maxi = $('#max'),
-                man = $('#mangle');
-            
-            if (box === 'comments' || box === 'beautify') {
-                if (maxi.is(':checked')) {
-                    maxi.attr("checked", false);
-                } 
-                if (man.is(':checked')) {
-                    man.attr("checked", false);
-                }
-            }
-            else if (box === 'max' || box === 'mangle') {
-            
-                if (beautify.is(':checked')) {
-                    beautify.attr("checked", false);
-                } 
-                if (comments.is(':checked')) {
-                    comments.attr("checked", false);
-                }
-                
-                if(box === 'mangle' && man.is(':checked') && !maxi.is(':checked')) {
-                    maxi.attr("checked", true);
-                }
-                
-                if(box === 'max' && !maxi.is(':checked') && man.is(':checked')) {
-                    man.attr("checked", false);
-                }
-            }
         },
         
         
@@ -257,7 +228,6 @@ $(function () {
         }        
     };
     
-    App.initialize();
     myCodeMirror = CodeMirror.fromTextArea(document.getElementById("console"), {
         lineNumbers: true,
         mode: "text/javascript",
@@ -269,4 +239,6 @@ $(function () {
     });
     
     myCodeMirror.setSize('100%', '100%');
+    
+    App.initialize();
 });
