@@ -69,19 +69,7 @@ $(function () {
                 self.form.find('#beautify').prop("checked", false);
             });
             
-            self.form.find('#mangle').on('change', function () {
-                self.form.find('#comments').prop("checked", false);
-                self.form.find('#beautify').prop("checked", false);
-                self.form.find('#max').prop("checked", true);
-            });
-            
-            self.form.find('#comments').on('change', function () {
-                self.form.find('#mangle').prop("checked", false);
-                self.form.find('#max').prop("checked", false);
-            });
-            
-            self.form.find('#beautify').on('change', function () {
-                self.form.find('#mangle').prop("checked", false);
+            self.form.find('#comments, #beautify').on('change', function () {
                 self.form.find('#max').prop("checked", false);
             });
             

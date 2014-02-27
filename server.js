@@ -51,7 +51,7 @@ function crush (req, res) {
         beautify: beautify,
         comments: comments,
         max: max,
-        mangle: mangle
+        mangle: max
     },
     function (error, code) {
         if (error) {
